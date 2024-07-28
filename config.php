@@ -1,14 +1,15 @@
 <?php
-$servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "crud_db";
+$socket = '/cloudsql/test-uece-18:us-central1:mysql-instance';
 
-// Criar conexão
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Checar conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
+$dsn = "mysql:unix_socket=$socket;dbname=$dbname";
+try {
+    $pdo = new PDO($dsn, $username, $password);
+    echo "Conectado ao MySQL com sucesso!";
+} catch (PDOException $e) {
+    echo "Erro ao conectar ao MySQL: " . $e->getMessage();
 }
+
 ?>

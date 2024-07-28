@@ -16,10 +16,6 @@ sudo apt install php libapache2-mod-php php-mysql -y
 # Reiniciar o Apache
 sudo systemctl restart apache2
 
-# Configurar permissões do diretório raiz do Apache
-sudo chown -R www-data:www-data /var/www/html/
-sudo chmod -R 755 /var/www/html/
-
 # Solicitar informações do usuário para o MySQL
 read -p "Digite o endereço do servidor MySQL (ex: localhost): " mysql_host
 read -p "Digite o nome de usuário do MySQL: " mysql_user
